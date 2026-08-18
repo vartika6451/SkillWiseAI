@@ -5,8 +5,13 @@ import cors from "cors";
 import { prisma } from "./db";
 import { ai } from "./gemini";
 import dotenv from "dotenv";
+import fs from "fs";
+import path from "path";
 
-// Load environment variables (supports standard node execution)
+// Load environment variables (supports standard node execution & local overrides)
+if (fs.existsSync(path.resolve(process.cwd(), ".env.local"))) {
+    dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
+}
 dotenv.config();
 
 console.log("--- STARTING BACKEND BOOT FLOW ---");
