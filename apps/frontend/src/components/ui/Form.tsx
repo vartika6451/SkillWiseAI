@@ -145,6 +145,7 @@ export function Form() {
     } catch (err: any) {
       console.error(err);
       const msg = err.response?.data?.message || "Error scraping repository list. Ensure the user exists.";
+      setValidationError(msg);
       toast.error(msg);
       setFetchingRepos(false);
     }
@@ -193,29 +194,29 @@ export function Form() {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#7a7dcd] overflow-x-hidden flex flex-col font-sans selection:bg-[#ff5a1a] selection:text-white">
+    <div className="relative min-h-screen bg-[#7a7dcd] overflow-x-hidden flex flex-col font-sans selection:bg-[#b83804] selection:text-white">
       {/* Background Grids & Orbs */}
       <div className="absolute inset-0 bg-grid-pattern opacity-100 pointer-events-none z-0" />
       <div className="glow-orb animate-pulse-glow w-[500px] h-[500px] bg-white/10 top-[-100px] left-[10%] pointer-events-none" />
-      <div className="glow-orb animate-pulse-glow w-[600px] h-[600px] bg-[#ff5a1a]/5 top-[30%] right-[5%] pointer-events-none" style={{ animationDelay: "2s" }} />
+      <div className="glow-orb animate-pulse-glow w-[600px] h-[600px] bg-[#b83804]/5 top-[30%] right-[5%] pointer-events-none" style={{ animationDelay: "2s" }} />
       <div className="glow-orb animate-pulse-glow w-[400px] h-[400px] bg-white/5 bottom-[10%] left-[20%] pointer-events-none" style={{ animationDelay: "4s" }} />
 
       {/* Navigation Header */}
       <header className="relative z-10 w-full max-w-7xl mx-auto px-6 h-20 flex justify-between items-center border-b border-[#121212] backdrop-blur-xl bg-[#7a7dcd]/80">
         <div className="flex items-center gap-2">
-          <div className="h-9 w-9 rounded-xl bg-[#ff5a1a] border border-[#121212] flex items-center justify-center shadow-xs">
+          <div className="h-9 w-9 rounded-xl bg-[#b83804] border border-[#121212] flex items-center justify-center shadow-xs">
             <Cpu className="h-5 w-5 text-white" />
           </div>
           <span className="font-extrabold text-xl tracking-tight text-[#121212]">
-            SkillWise<span className="text-[#ff5a1a] font-semibold">.ai</span>
+            SkillWise<span className="text-[#b83804] font-semibold">.ai</span>
           </span>
         </div>
         
         <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-[#121212]">
-          <a href="#features" className="hover:text-[#ff5a1a] transition-colors">Features</a>
-          <a href="#how-it-works" className="hover:text-[#ff5a1a] transition-colors">How it Works</a>
-          <a href="#simulator" className="hover:text-[#ff5a1a] transition-colors">Simulator</a>
-          <a href="#github-connect" className="text-[#ff5a1a] hover:text-[#ff5a1a]/80 transition-colors font-bold">Start Interview</a>
+          <a href="#features" className="hover:text-[#b83804] transition-colors">Features</a>
+          <a href="#how-it-works" className="hover:text-[#b83804] transition-colors">How it Works</a>
+          <a href="#simulator" className="hover:text-[#b83804] transition-colors">Simulator</a>
+          <a href="#github-connect" className="text-[#b83804] hover:text-[#b83804]/80 transition-colors font-bold">Start Interview</a>
         </nav>
 
         <div>
@@ -236,15 +237,15 @@ export function Form() {
           {/* Left Column: Heading and GitHub submission */}
           <div className="flex-1 flex flex-col items-start text-left max-w-2xl">
             {/* Pill Badge */}
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#dfdcce] border border-[#121212] text-[11px] font-bold text-[#ff5a1a] mb-6 tracking-wide shadow-xs animate-float">
-              <Sparkles className="h-3.5 w-3.5 text-[#ff5a1a]" />
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#dfdcce] border border-[#121212] text-[11px] font-bold text-[#b83804] mb-6 tracking-wide shadow-xs animate-float">
+              <Sparkles className="h-3.5 w-3.5 text-[#b83804]" />
               <span>Introducing SkillWise AI 1.0</span>
             </div>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#121212] leading-[1.15] mb-6">
               Your Personal AI <br />
-              <span className="text-[#ff5a1a] drop-shadow-xs">
+              <span className="text-[#b83804] drop-shadow-xs">
                 Technical Interviewer
               </span>
             </h1>
@@ -261,7 +262,7 @@ export function Form() {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,90,26,0.06)_0,transparent_50%)] pointer-events-none" />
               
               <h3 className="text-[#121212] font-extrabold text-lg mb-2 flex items-center gap-2">
-                <Github className="h-5 w-5 text-[#ff5a1a]" />
+                <Github className="h-5 w-5 text-[#b83804]" />
                 Analyze Codebase & Start Mock Session
               </h3>
               <p className="text-[#121212]/80 text-xs mb-6">
@@ -280,7 +281,7 @@ export function Form() {
                       onChange={(e) => handleGithubChange(e.target.value)}
                       placeholder="username"
                       disabled={fetchingRepos}
-                      className="w-full bg-[#e6e4d5] border border-[#121212] rounded-xl pl-[96px] pr-4 py-3.5 text-sm text-[#121212] placeholder-stone-500/50 focus:outline-none focus:border-[#ff5a1a] focus:ring-1 focus:ring-[#ff5a1a]/30 transition-all font-semibold"
+                      className="w-full bg-[#e6e4d5] border border-[#121212] rounded-xl pl-[96px] pr-4 py-3.5 text-sm text-[#121212] placeholder-stone-500/50 focus:outline-none focus:border-[#b83804] focus:ring-1 focus:ring-[#b83804]/30 transition-all font-semibold"
                     />
                   </div>
                   {validationError && (
@@ -293,7 +294,7 @@ export function Form() {
                     <label className="text-xs font-extrabold text-[#121212] block">
                       Upload Resume (PDF or TXT, optional)
                     </label>
-                    <div className="relative border-2 border-dashed border-[#121212]/30 hover:border-[#ff5a1a] rounded-xl p-4 bg-[#e6e4d5] hover:bg-[#dfdcce] transition-all flex flex-col items-center justify-center cursor-pointer group">
+                    <div className="relative border-2 border-dashed border-[#121212]/30 hover:border-[#b83804] rounded-xl p-4 bg-[#e6e4d5] hover:bg-[#dfdcce] transition-all flex flex-col items-center justify-center cursor-pointer group">
                       <input 
                         type="file" 
                         accept=".pdf,.txt" 
@@ -301,7 +302,7 @@ export function Form() {
                         disabled={fetchingRepos}
                         className="absolute inset-0 opacity-0 cursor-pointer disabled:pointer-events-none"
                       />
-                      <FileText className="h-6 w-6 text-[#ff5a1a] mb-2 group-hover:scale-110 transition-transform" />
+                      <FileText className="h-6 w-6 text-[#b83804] mb-2 group-hover:scale-110 transition-transform" />
                       {resumeFile ? (
                         <div className="text-center">
                           <p className="text-xs font-bold text-[#121212]">{resumeFile.name}</p>
@@ -321,7 +322,7 @@ export function Form() {
                   <button
                     type="submit"
                     disabled={fetchingRepos}
-                    className="w-full py-3.5 px-6 rounded-xl bg-[#ff5a1a] hover:bg-[#e04f14] text-white border border-[#121212] font-bold text-sm tracking-wide shadow-xs transition-all flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:pointer-events-none"
+                    className="w-full py-3.5 px-6 rounded-xl bg-[#b83804] hover:bg-[#962d03] text-white border border-[#121212] font-bold text-sm tracking-wide shadow-xs transition-all flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:pointer-events-none"
                   >
                     {fetchingRepos ? (
                       <>
@@ -344,7 +345,7 @@ export function Form() {
                       onClick={() => setStep("username")}
                       className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#e6e4d5] border border-[#121212] hover:bg-[#dfdcce] text-[10px] font-extrabold text-[#121212] transition-all"
                     >
-                      <ArrowLeft className="h-3.5 w-3.5 text-[#ff5a1a]" />
+                      <ArrowLeft className="h-3.5 w-3.5 text-[#b83804]" />
                       Back
                     </button>
                     <span className="text-[11px] font-bold text-[#121212]/75 font-mono">
@@ -355,7 +356,7 @@ export function Form() {
                   <div className="space-y-2.5">
                     <label className="text-xs font-extrabold text-[#121212] flex justify-between items-center">
                       <span>Select Important Repositories</span>
-                      <span className="text-[10px] font-mono font-bold text-[#ff5a1a] bg-[#ff5a1a]/10 border border-[#ff5a1a]/20 px-2 py-0.5 rounded">
+                      <span className="text-[10px] font-mono font-bold text-[#b83804] bg-[#b83804]/10 border border-[#b83804]/20 px-2 py-0.5 rounded">
                         {selectedRepos.length} / {repos?.length || 0}
                       </span>
                     </label>
@@ -384,7 +385,7 @@ export function Form() {
                         placeholder="Search repos by name or stack..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full bg-[#e6e4d5] border border-[#121212] rounded-lg pl-9 pr-3 py-2 text-xs text-[#121212] placeholder-stone-500/50 focus:outline-none focus:border-[#ff5a1a] transition-all font-semibold"
+                        className="w-full bg-[#e6e4d5] border border-[#121212] rounded-lg pl-9 pr-3 py-2 text-xs text-[#121212] placeholder-stone-500/50 focus:outline-none focus:border-[#b83804] transition-all font-semibold"
                       />
                     </div>
 
@@ -406,7 +407,7 @@ export function Form() {
                               onClick={() => handleToggleRepo(repo.name)}
                               className={`p-3 rounded-xl border border-[#121212] text-left cursor-pointer transition-all flex items-start gap-3 select-none ${
                                 isChecked 
-                                  ? "bg-[#ff5a1a]/10 border-[#ff5a1a] shadow-xs" 
+                                  ? "bg-[#b83804]/10 border-[#b83804] shadow-xs" 
                                   : "bg-[#e6e4d5] hover:bg-[#dfdcce] opacity-80"
                               }`}
                             >
@@ -414,14 +415,14 @@ export function Form() {
                                 type="checkbox"
                                 checked={isChecked}
                                 onChange={() => {}} 
-                                className="mt-0.5 h-3.5 w-3.5 accent-[#ff5a1a] flex-shrink-0 cursor-pointer"
+                                className="mt-0.5 h-3.5 w-3.5 accent-[#b83804] flex-shrink-0 cursor-pointer"
                               />
                               <div className="flex-1 min-w-0">
                                 <div className="flex items-center justify-between gap-2">
                                   <span className="font-extrabold text-xs text-[#121212] truncate flex items-center gap-1.5">
                                     {repo.name}
                                     {repo.isContribution && (
-                                      <span className="px-1.5 py-0.5 rounded bg-[#ff5a1a]/20 border border-[#ff5a1a]/30 text-[9px] font-extrabold text-[#ff5a1a] uppercase tracking-wider flex-shrink-0">
+                                      <span className="px-1.5 py-0.5 rounded bg-[#b83804]/20 border border-[#b83804]/30 text-[9px] font-extrabold text-[#b83804] uppercase tracking-wider flex-shrink-0">
                                         Contributed
                                       </span>
                                     )}
@@ -434,7 +435,7 @@ export function Form() {
                                     )}
                                     {repo.stars !== undefined && (
                                       <span className="flex items-center gap-0.5 bg-white/60 border border-[#121212]/15 px-1 py-0.5 rounded">
-                                        <Star className="h-2.5 w-2.5 text-[#ff5a1a] fill-[#ff5a1a]/20" />
+                                        <Star className="h-2.5 w-2.5 text-[#b83804] fill-[#b83804]/20" />
                                         {repo.stars}
                                       </span>
                                     )}
@@ -466,7 +467,7 @@ export function Form() {
                   <button
                     type="submit"
                     disabled={loading || selectedRepos.length === 0}
-                    className="w-full py-3.5 px-6 rounded-xl bg-[#ff5a1a] hover:bg-[#e04f14] text-white border border-[#121212] font-bold text-sm tracking-wide shadow-xs transition-all flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:pointer-events-none"
+                    className="w-full py-3.5 px-6 rounded-xl bg-[#b83804] hover:bg-[#962d03] text-white border border-[#121212] font-bold text-sm tracking-wide shadow-xs transition-all flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:pointer-events-none"
                   >
                     {loading ? (
                       <>
@@ -485,15 +486,15 @@ export function Form() {
 
               <div className="mt-5 flex items-center justify-between text-[11px] text-[#121212]/75 border-t border-[#121212]/15 pt-4">
                 <span className="flex items-center gap-1.5 font-bold">
-                  <Shield className="h-3 w-3 text-[#ff5a1a]" />
+                  <Shield className="h-3 w-3 text-[#b83804]" />
                   Public repos read-only
                 </span>
                 <span className="flex items-center gap-1.5 font-bold">
-                  <CheckCircle2 className="h-3 w-3 text-[#ff5a1a]" />
+                  <CheckCircle2 className="h-3 w-3 text-[#b83804]" />
                   Voice mock ready
                 </span>
                 <span className="flex items-center gap-1.5 font-bold">
-                  <Activity className="h-3 w-3 text-[#ff5a1a]" />
+                  <Activity className="h-3 w-3 text-[#b83804]" />
                   Free 100% evaluated
                 </span>
               </div>
@@ -503,7 +504,7 @@ export function Form() {
           {/* Right Column: Visual Dashboard / Live Preview */}
           <div id="simulator" className="flex-1 w-full lg:max-w-xl relative flex justify-center">
             {/* Background glowing sphere behind container */}
-            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#ff5a1a]/15 to-white/10 opacity-25 blur-xl animate-pulse-glow pointer-events-none" />
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#b83804]/15 to-white/10 opacity-25 blur-xl animate-pulse-glow pointer-events-none" />
 
             {/* Container */}
             <div className="w-full border-brutalist-sand rounded-2xl overflow-hidden shadow-xs relative">
@@ -513,10 +514,10 @@ export function Form() {
                 <div className="flex items-center gap-1.5">
                   <span className="h-2.5 w-2.5 rounded-full bg-red-500/80 border border-[#121212]/30" />
                   <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/80 border border-[#121212]/30" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#ff5a1a]/80 border border-[#121212]/30" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#b83804]/80 border border-[#121212]/30" />
                 </div>
-                <div className="text-[10px] text-[#ff5a1a] font-mono font-bold flex items-center gap-1.5 bg-white/40 px-3 py-1 rounded-md border border-[#121212]">
-                  <Terminal className="h-3 w-3 text-[#ff5a1a]" />
+                <div className="text-[10px] text-[#b83804] font-mono font-bold flex items-center gap-1.5 bg-white/40 px-3 py-1 rounded-md border border-[#121212]">
+                  <Terminal className="h-3 w-3 text-[#b83804]" />
                   skillwise-dashboard.ai
                 </div>
                 <div className="w-6" />
@@ -526,24 +527,24 @@ export function Form() {
               <div className="p-5 space-y-5">
                 {/* 1. Codebase Scanner Simulation */}
                 <div className="bg-[#e6e4d5] border border-[#121212]/30 p-4 rounded-xl font-mono text-xs text-[#121212] space-y-2.5 relative">
-                  <div className="absolute top-3 right-3 flex items-center gap-1 text-[10px] text-[#ff5a1a] font-bold">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#ff5a1a] animate-ping" />
+                  <div className="absolute top-3 right-3 flex items-center gap-1 text-[10px] text-[#b83804] font-bold">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#b83804] animate-ping" />
                     scanning...
                   </div>
                   
-                  <p className="text-[#ff5a1a] font-bold flex items-center gap-1.5">
+                  <p className="text-[#b83804] font-bold flex items-center gap-1.5">
                     <span>$</span> analyze --github-profile=vartika6451
                   </p>
                   
                   <div className="space-y-1 text-[#121212]/85 text-[11px] leading-relaxed font-semibold">
                     <p className="flex items-center gap-2">
-                      <span className="text-[#ff5a1a] font-bold">✓</span> Scraped 12 repositories
+                      <span className="text-[#b83804] font-bold">✓</span> Scraped 12 repositories
                     </p>
                     <p className="flex items-center gap-2">
-                      <span className="text-[#ff5a1a] font-bold">✓</span> Detected stack: React, TypeScript, Bun, SQLite
+                      <span className="text-[#b83804] font-bold">✓</span> Detected stack: React, TypeScript, Bun, SQLite
                     </p>
-                    <p className="flex items-center gap-2 text-[#ff5a1a] font-bold">
-                      <Sparkles className="h-3.5 w-3.5 text-[#ff5a1a] animate-pulse" />
+                    <p className="flex items-center gap-2 text-[#b83804] font-bold">
+                      <Sparkles className="h-3.5 w-3.5 text-[#b83804] animate-pulse" />
                       Generated 8 custom core mock questions
                     </p>
                   </div>
@@ -555,9 +556,9 @@ export function Form() {
                   
                   {/* Glowing Animated Audio Orb */}
                   <div className="relative flex items-center justify-center h-20 w-20">
-                    <div className="absolute inset-0 bg-[#ff5a1a]/15 rounded-full animate-ping pointer-events-none" />
-                    <div className="absolute inset-2 bg-[#ff5a1a]/20 rounded-full blur-xs animate-pulse-glow pointer-events-none" />
-                    <div className="h-14 w-14 rounded-full bg-[#ff5a1a] border border-[#121212] flex items-center justify-center text-white shadow-xs hover:scale-[1.03] transition-transform cursor-pointer">
+                    <div className="absolute inset-0 bg-[#b83804]/15 rounded-full animate-ping pointer-events-none" />
+                    <div className="absolute inset-2 bg-[#b83804]/20 rounded-full blur-xs animate-pulse-glow pointer-events-none" />
+                    <div className="h-14 w-14 rounded-full bg-[#b83804] border border-[#121212] flex items-center justify-center text-white shadow-xs hover:scale-[1.03] transition-transform cursor-pointer">
                       <Mic className="h-6 w-6 text-white animate-pulse" />
                     </div>
                   </div>
@@ -565,7 +566,7 @@ export function Form() {
                   <div className="space-y-1.5">
                     <p className="text-xs text-[#121212] font-bold flex items-center justify-center gap-1.5">
                       <span>Interviewer AI</span> 
-                      <span className="bg-[#ff5a1a]/10 text-[#ff5a1a] text-[9px] px-1.5 py-0.5 rounded border border-[#ff5a1a]/30 font-mono font-bold">LIVE SPEECH</span>
+                      <span className="bg-[#b83804]/10 text-[#b83804] text-[9px] px-1.5 py-0.5 rounded border border-[#b83804]/30 font-mono font-bold">LIVE SPEECH</span>
                     </p>
                     <p className="text-[11px] text-[#121212]/80 italic max-w-sm font-semibold">
                       "Explain your implementation of the rate-limiter middleware. How does it manage memory consumption under high load?"
@@ -577,7 +578,7 @@ export function Form() {
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
                       <span 
                         key={i} 
-                        className={`w-0.5 rounded-full bg-[#ff5a1a] transition-all ${
+                        className={`w-0.5 rounded-full bg-[#b83804] transition-all ${
                           i % 3 === 0 ? "h-3" : i % 2 === 0 ? "h-4" : "h-2"
                         } animate-pulse`} 
                         style={{ animationDelay: `${i * 0.15}s`, animationDuration: "1s" }}
@@ -590,7 +591,7 @@ export function Form() {
                 <div className="bg-[#e6e4d5] border border-[#121212]/30 p-4 rounded-xl grid grid-cols-3 gap-3">
                   <div className="flex flex-col items-center justify-center bg-[#dfdcce] border border-[#121212] p-2.5 rounded-lg text-center shadow-xs">
                     <span className="text-[9px] text-[#121212]/60 font-extrabold uppercase tracking-wider mb-1">Score</span>
-                    <span className="text-lg font-extrabold text-[#ff5a1a] font-mono">87/100</span>
+                    <span className="text-lg font-extrabold text-[#b83804] font-mono">87/100</span>
                   </div>
                   
                   <div className="flex flex-col items-center justify-center bg-[#dfdcce] border border-[#121212] p-2.5 rounded-lg text-center shadow-xs">
@@ -600,7 +601,7 @@ export function Form() {
 
                   <div className="flex flex-col items-center justify-center bg-[#dfdcce] border border-[#121212] p-2.5 rounded-lg text-center shadow-xs">
                     <span className="text-[9px] text-[#121212]/60 font-extrabold uppercase tracking-wider mb-1">Focus</span>
-                    <span className="text-[9px] font-bold text-[#ff5a1a]">Scalability</span>
+                    <span className="text-[9px] font-bold text-[#b83804]">Scalability</span>
                   </div>
                 </div>
 
@@ -616,12 +617,12 @@ export function Form() {
             Designed for engineers interviewing at elite organizations
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-75 hover:opacity-100 transition-opacity">
-            <span className="font-bold text-sm sm:text-base text-[#121212]/60 hover:text-[#ff5a1a] transition-colors cursor-default tracking-wide font-mono">Y Combinator</span>
-            <span className="font-bold text-sm sm:text-base text-[#121212]/60 hover:text-[#ff5a1a] transition-colors cursor-default tracking-wide font-mono">Vercel</span>
-            <span className="font-bold text-sm sm:text-base text-[#121212]/60 hover:text-[#ff5a1a] transition-colors cursor-default tracking-wide font-mono">Linear</span>
-            <span className="font-bold text-sm sm:text-base text-[#121212]/60 hover:text-[#ff5a1a] transition-colors cursor-default tracking-wide font-mono">Stripe</span>
-            <span className="font-bold text-sm sm:text-base text-[#121212]/60 hover:text-[#ff5a1a] transition-colors cursor-default tracking-wide font-mono">Perplexity</span>
-            <span className="font-bold text-sm sm:text-base text-[#121212]/60 hover:text-[#ff5a1a] transition-colors cursor-default tracking-wide font-mono">OpenAI</span>
+            <span className="font-bold text-sm sm:text-base text-[#121212]/60 hover:text-[#b83804] transition-colors cursor-default tracking-wide font-mono">Y Combinator</span>
+            <span className="font-bold text-sm sm:text-base text-[#121212]/60 hover:text-[#b83804] transition-colors cursor-default tracking-wide font-mono">Vercel</span>
+            <span className="font-bold text-sm sm:text-base text-[#121212]/60 hover:text-[#b83804] transition-colors cursor-default tracking-wide font-mono">Linear</span>
+            <span className="font-bold text-sm sm:text-base text-[#121212]/60 hover:text-[#b83804] transition-colors cursor-default tracking-wide font-mono">Stripe</span>
+            <span className="font-bold text-sm sm:text-base text-[#121212]/60 hover:text-[#b83804] transition-colors cursor-default tracking-wide font-mono">Perplexity</span>
+            <span className="font-bold text-sm sm:text-base text-[#121212]/60 hover:text-[#b83804] transition-colors cursor-default tracking-wide font-mono">OpenAI</span>
           </div>
         </section>
 
@@ -638,9 +639,9 @@ export function Form() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             {/* Step 1 */}
-            <div className="border-glow-teal p-6 rounded-2xl relative space-y-4 border-brutalist-sand hover:border-[#ff5a1a] transition-all">
-              <div className="absolute top-6 right-6 font-mono text-3xl font-extrabold text-[#ff5a1a]/20">01</div>
-              <div className="h-10 w-10 rounded-xl bg-[#e6e4d5] border border-[#121212] flex items-center justify-center text-[#ff5a1a]">
+            <div className="border-glow-teal p-6 rounded-2xl relative space-y-4 border-brutalist-sand hover:border-[#b83804] transition-all">
+              <div className="absolute top-6 right-6 font-mono text-3xl font-extrabold text-[#b83804]/20">01</div>
+              <div className="h-10 w-10 rounded-xl bg-[#e6e4d5] border border-[#121212] flex items-center justify-center text-[#b83804]">
                 <Github className="h-5 w-5" />
               </div>
               <h4 className="text-[#121212] font-bold text-base">Connect GitHub Profile</h4>
@@ -650,9 +651,9 @@ export function Form() {
             </div>
 
             {/* Step 2 */}
-            <div className="border-glow-teal p-6 rounded-2xl relative space-y-4 border-brutalist-sand hover:border-[#ff5a1a] transition-all">
-              <div className="absolute top-6 right-6 font-mono text-3xl font-extrabold text-[#ff5a1a]/20">02</div>
-              <div className="h-10 w-10 rounded-xl bg-[#e6e4d5] border border-[#121212] flex items-center justify-center text-[#ff5a1a]">
+            <div className="border-glow-teal p-6 rounded-2xl relative space-y-4 border-brutalist-sand hover:border-[#b83804] transition-all">
+              <div className="absolute top-6 right-6 font-mono text-3xl font-extrabold text-[#b83804]/20">02</div>
+              <div className="h-10 w-10 rounded-xl bg-[#e6e4d5] border border-[#121212] flex items-center justify-center text-[#b83804]">
                 <Mic className="h-5 w-5" />
               </div>
               <h4 className="text-[#121212] font-bold text-base">Conduct Voice Interview</h4>
@@ -662,9 +663,9 @@ export function Form() {
             </div>
 
             {/* Step 3 */}
-            <div className="border-glow-teal p-6 rounded-2xl relative space-y-4 border-brutalist-sand hover:border-[#ff5a1a] transition-all">
-              <div className="absolute top-6 right-6 font-mono text-3xl font-extrabold text-[#ff5a1a]/20">03</div>
-              <div className="h-10 w-10 rounded-xl bg-[#e6e4d5] border border-[#121212] flex items-center justify-center text-[#ff5a1a]">
+            <div className="border-glow-teal p-6 rounded-2xl relative space-y-4 border-brutalist-sand hover:border-[#b83804] transition-all">
+              <div className="absolute top-6 right-6 font-mono text-3xl font-extrabold text-[#b83804]/20">03</div>
+              <div className="h-10 w-10 rounded-xl bg-[#e6e4d5] border border-[#121212] flex items-center justify-center text-[#b83804]">
                 <FileText className="h-5 w-5" />
               </div>
               <h4 className="text-[#121212] font-bold text-base">Hiring Evaluation Report</h4>
@@ -690,9 +691,9 @@ export function Form() {
           <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
             
             {/* Bento Card 1: AI Codebase Audit (Col Span 3) */}
-            <div className="md:col-span-3 border-brutalist-sand p-8 rounded-2xl flex flex-col justify-between hover:border-[#ff5a1a] transition-all">
+            <div className="md:col-span-3 border-brutalist-sand p-8 rounded-2xl flex flex-col justify-between hover:border-[#b83804] transition-all">
               <div className="space-y-4">
-                <div className="h-9 w-9 rounded-lg bg-[#e6e4d5] border border-[#121212] flex items-center justify-center text-[#ff5a1a]">
+                <div className="h-9 w-9 rounded-lg bg-[#e6e4d5] border border-[#121212] flex items-center justify-center text-[#b83804]">
                   <Cpu className="h-5 w-5" />
                 </div>
                 <h3 className="text-[#121212] font-bold text-lg">AI-Powered Stack Parsing</h3>
@@ -701,15 +702,15 @@ export function Form() {
                 </p>
               </div>
               <div className="mt-8 border-t border-[#121212]/10 pt-4 flex gap-4 text-[11px] text-[#121212]/70 font-mono font-bold">
-                <span className="flex items-center gap-1"><Check className="h-3 w-3 text-[#ff5a1a]" /> AST parsing</span>
-                <span className="flex items-center gap-1"><Check className="h-3 w-3 text-[#ff5a1a]" /> Dependency tracing</span>
+                <span className="flex items-center gap-1"><Check className="h-3 w-3 text-[#b83804]" /> AST parsing</span>
+                <span className="flex items-center gap-1"><Check className="h-3 w-3 text-[#b83804]" /> Dependency tracing</span>
               </div>
             </div>
 
             {/* Bento Card 2: Voice simulation (Col Span 3) */}
-            <div className="md:col-span-3 border-brutalist-sand p-8 rounded-2xl flex flex-col justify-between hover:border-[#ff5a1a] transition-all">
+            <div className="md:col-span-3 border-brutalist-sand p-8 rounded-2xl flex flex-col justify-between hover:border-[#b83804] transition-all">
               <div className="space-y-4">
-                <div className="h-9 w-9 rounded-lg bg-[#e6e4d5] border border-[#121212] flex items-center justify-center text-[#ff5a1a]">
+                <div className="h-9 w-9 rounded-lg bg-[#e6e4d5] border border-[#121212] flex items-center justify-center text-[#b83804]">
                   <Mic className="h-5 w-5" />
                 </div>
                 <h3 className="text-[#121212] font-bold text-lg">Conversational Voice Mock</h3>
@@ -718,15 +719,15 @@ export function Form() {
                 </p>
               </div>
               <div className="mt-8 border-t border-[#121212]/10 pt-4 flex gap-4 text-[11px] text-[#121212]/70 font-mono font-bold">
-                <span className="flex items-center gap-1"><Check className="h-3 w-3 text-[#ff5a1a]" /> Natural Voice (TTS)</span>
-                <span className="flex items-center gap-1"><Check className="h-3 w-3 text-[#ff5a1a]" /> Audio wave visualizer</span>
+                <span className="flex items-center gap-1"><Check className="h-3 w-3 text-[#b83804]" /> Natural Voice (TTS)</span>
+                <span className="flex items-center gap-1"><Check className="h-3 w-3 text-[#b83804]" /> Audio wave visualizer</span>
               </div>
             </div>
 
             {/* Bento Card 3: Performance Assessment scoring (Col Span 2) */}
-            <div className="md:col-span-2 border-brutalist-sand p-6 rounded-2xl flex flex-col justify-between hover:border-[#ff5a1a] transition-all">
+            <div className="md:col-span-2 border-brutalist-sand p-6 rounded-2xl flex flex-col justify-between hover:border-[#b83804] transition-all">
               <div className="space-y-3">
-                <div className="h-8 w-8 rounded-lg bg-[#e6e4d5] border border-[#121212] flex items-center justify-center text-[#ff5a1a]">
+                <div className="h-8 w-8 rounded-lg bg-[#e6e4d5] border border-[#121212] flex items-center justify-center text-[#b83804]">
                   <BarChart3 className="h-4.5 w-4.5" />
                 </div>
                 <h3 className="text-[#121212] font-bold text-base">Hiring Scorecard</h3>
@@ -737,9 +738,9 @@ export function Form() {
             </div>
 
             {/* Bento Card 4: Technical evaluation metrics (Col Span 2) */}
-            <div className="md:col-span-2 border-brutalist-sand p-6 rounded-2xl flex flex-col justify-between hover:border-[#ff5a1a] transition-all">
+            <div className="md:col-span-2 border-brutalist-sand p-6 rounded-2xl flex flex-col justify-between hover:border-[#b83804] transition-all">
               <div className="space-y-3">
-                <div className="h-8 w-8 rounded-lg bg-[#e6e4d5] border border-[#121212] flex items-center justify-center text-[#ff5a1a]">
+                <div className="h-8 w-8 rounded-lg bg-[#e6e4d5] border border-[#121212] flex items-center justify-center text-[#b83804]">
                   <TrendingUp className="h-4.5 w-4.5" />
                 </div>
                 <h3 className="text-[#121212] font-bold text-base">Performance Analytics</h3>
@@ -750,9 +751,9 @@ export function Form() {
             </div>
 
             {/* Bento Card 5: Improvement Areas (Col Span 2) */}
-            <div className="md:col-span-2 border-brutalist-sand p-6 rounded-2xl flex flex-col justify-between hover:border-[#ff5a1a] transition-all">
+            <div className="md:col-span-2 border-brutalist-sand p-6 rounded-2xl flex flex-col justify-between hover:border-[#b83804] transition-all">
               <div className="space-y-3">
-                <div className="h-8 w-8 rounded-lg bg-[#e6e4d5] border border-[#121212] flex items-center justify-center text-[#ff5a1a]">
+                <div className="h-8 w-8 rounded-lg bg-[#e6e4d5] border border-[#121212] flex items-center justify-center text-[#b83804]">
                   <Award className="h-4.5 w-4.5" />
                 </div>
                 <h3 className="text-[#121212] font-bold text-base">Targeted Feedback</h3>
@@ -771,11 +772,11 @@ export function Form() {
       <footer className="relative z-10 w-full mt-24 border-t border-[#121212] bg-[#dfdcce] py-12 text-[#121212]">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
-            <div className="h-7 w-7 rounded-lg bg-[#ff5a1a] border border-[#121212] flex items-center justify-center shadow-sm">
+            <div className="h-7 w-7 rounded-lg bg-[#b83804] border border-[#121212] flex items-center justify-center shadow-sm">
               <Cpu className="h-4 w-4 text-white" />
             </div>
             <span className="font-extrabold text-md tracking-tight text-[#121212]">
-              SkillWise<span className="text-[#ff5a1a] font-semibold">.ai</span>
+              SkillWise<span className="text-[#b83804] font-semibold">.ai</span>
             </span>
           </div>
 
@@ -784,11 +785,11 @@ export function Form() {
           </p>
 
           <div className="flex items-center gap-6 text-xs text-[#121212]/80 font-bold">
-            <a href="#features" className="hover:text-[#ff5a1a] transition-colors">Features</a>
-            <a href="#how-it-works" className="hover:text-[#ff5a1a] transition-colors">How it Works</a>
+            <a href="#features" className="hover:text-[#b83804] transition-colors">Features</a>
+            <a href="#how-it-works" className="hover:text-[#b83804] transition-colors">How it Works</a>
             <span className="text-[#121212]/20">|</span>
             <span className="text-[#121212] flex items-center gap-1">
-              <Globe className="h-3.5 w-3.5 text-[#ff5a1a]" />
+              <Globe className="h-3.5 w-3.5 text-[#b83804]" />
               US East Sandbox
             </span>
           </div>

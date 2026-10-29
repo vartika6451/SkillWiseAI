@@ -835,18 +835,18 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
       "Simulating consensus and synthesizing hiring panel reports..."
     ];
     return (
-      <div className="relative min-h-screen bg-[#7a7dcd] text-[#121212] flex flex-col items-center justify-center p-4 md:p-8 selection:bg-[#ff5a1a] selection:text-white overflow-hidden">
+      <div className="relative min-h-screen bg-[#7a7dcd] text-[#121212] flex flex-col items-center justify-center p-4 md:p-8 selection:bg-[#b83804] selection:text-white overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-100 pointer-events-none z-0" />
         <div className="glow-orb animate-pulse-glow w-[500px] h-[500px] bg-white/10 top-[-100px] left-[10%] pointer-events-none" />
         
         <Card className="border-brutalist-sand rounded-2xl w-full max-w-lg p-8 z-10 shadow-lg relative overflow-hidden bg-[#dfdcce]">
-          <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#ff5a1a] animate-pulse" />
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#b83804] animate-pulse" />
           
           <div className="flex flex-col items-center text-center space-y-6">
             <div className="relative">
-              <div className="absolute -inset-4 rounded-full bg-[#ff5a1a]/15 animate-ping" />
+              <div className="absolute -inset-4 rounded-full bg-[#b83804]/15 animate-ping" />
               <div className="h-16 w-16 bg-[#dfdcce] border-2 border-[#121212] rounded-2xl flex items-center justify-center shadow-xs">
-                <Loader2 className="h-8 w-8 animate-spin text-[#ff5a1a]" />
+                <Loader2 className="h-8 w-8 animate-spin text-[#b83804]" />
               </div>
             </div>
 
@@ -864,7 +864,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                     {isPast ? (
                       <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
                     ) : isCurrent ? (
-                      <Loader2 className="h-4 w-4 animate-spin text-[#ff5a1a] shrink-0" />
+                      <Loader2 className="h-4 w-4 animate-spin text-[#b83804] shrink-0" />
                     ) : (
                       <div className="h-4 w-4 rounded-full border border-[#121212]/30 shrink-0" />
                     )}
@@ -876,7 +876,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
               })}
             </div>
 
-            <div className="text-[10px] text-[#ff5a1a] font-bold uppercase tracking-wider animate-pulse">
+            <div className="text-[10px] text-[#b83804] font-bold uppercase tracking-wider animate-pulse">
               Generating scorecards & panel opinions...
             </div>
           </div>
@@ -908,7 +908,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
     else if (readiness.toLowerCase().includes("no")) readinessBg = "bg-red-500 text-white border-[#121212]";
 
     return (
-      <div className="relative min-h-screen w-screen bg-[#7a7dcd] text-[#121212] flex flex-col items-center p-4 md:p-8 selection:bg-[#ff5a1a] selection:text-white overflow-y-auto">
+      <div className="relative min-h-screen w-screen bg-[#7a7dcd] text-[#121212] flex flex-col items-center p-4 md:p-8 selection:bg-[#b83804] selection:text-white overflow-y-auto">
         <div className="absolute inset-0 bg-grid-pattern opacity-100 pointer-events-none z-0" />
         <div className="glow-orb animate-pulse-glow w-[500px] h-[500px] bg-white/10 top-[-100px] left-[10%] pointer-events-none" />
 
@@ -916,7 +916,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
           <Button 
             variant="ghost" 
             onClick={() => navigate("/")}
-            className="text-[#121212]/80 hover:text-[#ff5a1a] hover:bg-white/20 border border-transparent hover:border-[#121212] gap-2 rounded-xl transition-all"
+            className="text-[#121212]/80 hover:text-[#b83804] hover:bg-white/20 border border-transparent hover:border-[#121212] gap-2 rounded-xl transition-all"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Dashboard
@@ -924,7 +924,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
           
           <div className="flex items-center gap-2">
             <span className="font-extrabold text-lg tracking-tight text-[#121212]">
-              SkillWise<span className="text-[#ff5a1a] font-semibold">.ai</span>
+              SkillWise<span className="text-[#b83804] font-semibold">.ai</span>
             </span>
           </div>
         </header>
@@ -953,7 +953,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                 
                 <div className="flex flex-col items-center justify-center text-center p-4 border border-[#121212] bg-[#e6e4d5] rounded-xl shadow-xs">
                   <span className="text-xs text-stone-600 font-extrabold uppercase mb-1">Overall rating</span>
-                  <div className="text-4xl font-extrabold text-[#ff5a1a] font-mono">{scores.overall}</div>
+                  <div className="text-4xl font-extrabold text-[#b83804] font-mono">{scores.overall}</div>
                   <span className="text-[10px] text-[#121212]/50 font-bold mt-1">out of 100</span>
                 </div>
 
@@ -964,7 +964,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                       <span className="font-extrabold text-[#121212]">{scores.technicalDepth}/100</span>
                     </div>
                     <div className="w-full bg-[#e6e4d5] rounded-full h-2.5 border border-[#121212]/30">
-                      <div className="bg-[#ff5a1a] h-full rounded-full border-r border-[#121212]" style={{ width: `${scores.technicalDepth}%` }}></div>
+                      <div className="bg-[#b83804] h-full rounded-full border-r border-[#121212]" style={{ width: `${scores.technicalDepth}%` }}></div>
                     </div>
                   </div>
 
@@ -974,7 +974,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                       <span className="font-extrabold text-[#121212]">{scores.systemDesign}/100</span>
                     </div>
                     <div className="w-full bg-[#e6e4d5] rounded-full h-2.5 border border-[#121212]/30">
-                      <div className="bg-[#ff5a1a] h-full rounded-full border-r border-[#121212]" style={{ width: `${scores.systemDesign}%` }}></div>
+                      <div className="bg-[#b83804] h-full rounded-full border-r border-[#121212]" style={{ width: `${scores.systemDesign}%` }}></div>
                     </div>
                   </div>
 
@@ -984,7 +984,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                       <span className="font-extrabold text-[#121212]">{scores.communication}/100</span>
                     </div>
                     <div className="w-full bg-[#e6e4d5] rounded-full h-2.5 border border-[#121212]/30">
-                      <div className="bg-[#ff5a1a] h-full rounded-full border-r border-[#121212]" style={{ width: `${scores.communication}%` }}></div>
+                      <div className="bg-[#b83804] h-full rounded-full border-r border-[#121212]" style={{ width: `${scores.communication}%` }}></div>
                     </div>
                   </div>
 
@@ -994,7 +994,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                       <span className="font-extrabold text-[#121212]">{scores.problemSolving}/100</span>
                     </div>
                     <div className="w-full bg-[#e6e4d5] rounded-full h-2.5 border border-[#121212]/30">
-                      <div className="bg-[#ff5a1a] h-full rounded-full border-r border-[#121212]" style={{ width: `${scores.problemSolving}%` }}></div>
+                      <div className="bg-[#b83804] h-full rounded-full border-r border-[#121212]" style={{ width: `${scores.problemSolving}%` }}></div>
                     </div>
                   </div>
                 </div>
@@ -1005,15 +1005,15 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
 
           <div className="space-y-4 pt-4">
             <h3 className="text-lg font-extrabold text-[#121212] flex items-center gap-2">
-              <Bot className="h-5 w-5 text-[#ff5a1a]" />
+              <Bot className="h-5 w-5 text-[#b83804]" />
               Hiring Panel Deliberation Detail
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {panelFeedback.map((p: any, idx: number) => {
-                let roleIcon = <Terminal className="h-5 w-5 text-[#ff5a1a]" />;
-                if (p.role === "System Architect") roleIcon = <Layers className="h-5 w-5 text-[#ff5a1a]" />;
-                else if (p.role === "Engineering Manager") roleIcon = <User className="h-5 w-5 text-[#ff5a1a]" />;
+                let roleIcon = <Terminal className="h-5 w-5 text-[#b83804]" />;
+                if (p.role === "System Architect") roleIcon = <Layers className="h-5 w-5 text-[#b83804]" />;
+                else if (p.role === "Engineering Manager") roleIcon = <User className="h-5 w-5 text-[#b83804]" />;
 
                 let sentimentColor = "bg-stone-100 border-stone-300 text-stone-600";
                 if (p.sentiment === "positive") sentimentColor = "bg-emerald-100 border-emerald-300 text-emerald-700";
@@ -1064,13 +1064,13 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
 
               <div className="border-t border-[#121212]/15 pt-4">
                 <h4 className="font-extrabold text-sm text-[#121212] flex items-center gap-1.5 mb-3">
-                  <AlertCircle className="h-4 w-4 text-[#ff5a1a]" />
+                  <AlertCircle className="h-4 w-4 text-[#b83804]" />
                   Improvement Areas
                 </h4>
                 <ul className="space-y-2 text-xs font-semibold text-stone-750">
                   {improvements.map((imp: string, index: number) => (
                     <li key={index} className="flex gap-2 items-start">
-                      <span className="text-[#ff5a1a] shrink-0">⚠</span>
+                      <span className="text-[#b83804] shrink-0">⚠</span>
                       <span>{imp}</span>
                     </li>
                   ))}
@@ -1081,26 +1081,26 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
             <Card className="border-brutalist-sand rounded-2xl p-6 bg-[#dfdcce] flex flex-col justify-between shadow-xs">
               <div className="space-y-4">
                 <h3 className="text-sm font-extrabold text-[#121212] flex items-center gap-2 border-b border-[#121212]/10 pb-3">
-                  <Activity className="h-4 w-4 text-[#ff5a1a]" />
+                  <Activity className="h-4 w-4 text-[#b83804]" />
                   Speech & Verbal Delivery
                 </h3>
 
                 <div className="grid grid-cols-3 gap-3">
                   <div className="flex flex-col items-center justify-center p-3 bg-[#e6e4d5] border border-[#121212] rounded-xl text-center shadow-xs">
                     <span className="text-[9px] text-[#121212]/60 font-extrabold uppercase mb-1">Avg Tempo</span>
-                    <span className="text-sm font-extrabold text-[#ff5a1a] font-mono">{avgWpm || 125}</span>
+                    <span className="text-sm font-extrabold text-[#b83804] font-mono">{avgWpm || 125}</span>
                     <span className="text-[8px] text-stone-500 font-bold">WPM</span>
                   </div>
 
                   <div className="flex flex-col items-center justify-center p-3 bg-[#e6e4d5] border border-[#121212] rounded-xl text-center shadow-xs">
                     <span className="text-[9px] text-[#121212]/60 font-extrabold uppercase mb-1">Hesitations</span>
-                    <span className="text-sm font-extrabold text-[#ff5a1a] font-mono">{totalHesitations}</span>
+                    <span className="text-sm font-extrabold text-[#b83804] font-mono">{totalHesitations}</span>
                     <span className="text-[8px] text-stone-500 font-bold">Total Um/Uh</span>
                   </div>
 
                   <div className="flex flex-col items-center justify-center p-3 bg-[#e6e4d5] border border-[#121212] rounded-xl text-center shadow-xs">
                     <span className="text-[9px] text-[#121212]/60 font-extrabold uppercase mb-1">Total Speech</span>
-                    <span className="text-sm font-extrabold text-[#ff5a1a] font-mono">{Math.round(totalDuration) || 45}s</span>
+                    <span className="text-sm font-extrabold text-[#b83804] font-mono">{Math.round(totalDuration) || 45}s</span>
                     <span className="text-[8px] text-stone-500 font-bold">Talk duration</span>
                   </div>
                 </div>
@@ -1126,7 +1126,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                 <Button 
                   size="sm" 
                   onClick={() => navigate("/")}
-                  className="bg-[#ff5a1a] hover:bg-[#e04f14] border border-[#121212] text-white rounded-xl shadow-sm font-extrabold text-xs"
+                  className="bg-[#b83804] hover:bg-[#962d03] border border-[#121212] text-white rounded-xl shadow-sm font-extrabold text-xs"
                 >
                   Start New Session
                 </Button>
@@ -1142,7 +1142,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
     return (
       <div className="h-screen w-screen bg-[#7a7dcd] flex flex-col justify-center items-center text-[#121212] relative">
         <div className="absolute inset-0 bg-grid-pattern opacity-60 pointer-events-none" />
-        <Loader2 className="h-12 w-12 animate-spin text-[#ff5a1a] mb-4 z-10" />
+        <Loader2 className="h-12 w-12 animate-spin text-[#b83804] mb-4 z-10" />
         <p className="text-[#121212]/80 text-sm font-bold animate-pulse z-10">Analyzing GitHub portfolio and initializing sandbox...</p>
       </div>
     );
@@ -1175,16 +1175,16 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
       `Profile analyzed for candidate ${name} (${login}) with ${publicReposCount} repositories. Demonstrated experience in ${extractedTech.slice(0, 4).join(", ")}. The interview has been customized to evaluate technical depth, system design, and communication pacing.`;
 
     return (
-      <div className="relative min-h-screen w-screen bg-[#7a7dcd] text-[#121212] flex flex-col items-center selection:bg-[#ff5a1a] selection:text-white overflow-y-auto">
+      <div className="relative min-h-screen w-screen bg-[#7a7dcd] text-[#121212] flex flex-col items-center selection:bg-[#b83804] selection:text-white overflow-y-auto">
         <div className="absolute inset-0 bg-grid-pattern opacity-100 pointer-events-none z-0" />
         <div className="glow-orb animate-pulse-glow w-[500px] h-[500px] bg-white/10 top-[-100px] left-[10%] pointer-events-none" />
-        <div className="glow-orb animate-pulse-glow w-[600px] h-[600px] bg-[#ff5a1a]/5 top-[30%] right-[5%] pointer-events-none" style={{ animationDelay: "2s" }} />
+        <div className="glow-orb animate-pulse-glow w-[600px] h-[600px] bg-[#b83804]/5 top-[30%] right-[5%] pointer-events-none" style={{ animationDelay: "2s" }} />
 
         <header className="w-full max-w-5xl flex justify-between items-center px-4 md:px-6 mt-4 mb-4 z-10 relative shrink-0">
           <Button 
             variant="ghost" 
             onClick={() => navigate("/")}
-            className="text-[#121212]/80 hover:text-[#ff5a1a] hover:bg-white/20 border border-transparent hover:border-[#121212] gap-2 rounded-xl transition-all"
+            className="text-[#121212]/80 hover:text-[#b83804] hover:bg-white/20 border border-transparent hover:border-[#121212] gap-2 rounded-xl transition-all"
           >
             <ArrowLeft className="h-4 w-4" />
             Leave Interview
@@ -1192,7 +1192,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
           
           <div className="flex items-center gap-3">
             <span className="font-extrabold text-lg tracking-tight text-[#121212]">
-              SkillWise<span className="text-[#ff5a1a] font-semibold">.ai</span>
+              SkillWise<span className="text-[#b83804] font-semibold">.ai</span>
             </span>
           </div>
         </header>
@@ -1201,7 +1201,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
           
           <section className="min-h-[calc(100vh-140px)] flex flex-col justify-center gap-6 py-6 border-b border-[#121212]/10 relative">
             <div className="text-center md:text-left space-y-2">
-              <span className="text-[10px] text-[#ff5a1a] font-extrabold uppercase tracking-widest bg-[#ff5a1a]/10 px-3 py-1 rounded-full border border-[#ff5a1a]/20">
+              <span className="text-[10px] text-[#b83804] font-extrabold uppercase tracking-widest bg-[#b83804]/10 px-3 py-1 rounded-full border border-[#b83804]/20">
                 Step 01 / 03 — Profile Analysis
               </span>
               <h1 className="text-3xl md:text-4xl font-extrabold text-[#121212] tracking-tight mt-2">
@@ -1215,7 +1215,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
             <Card className="border-brutalist-sand rounded-2xl p-6 md:p-8 bg-[#dfdcce] w-full flex flex-col md:grid md:grid-cols-12 gap-8 shadow-xs">
               <div className="md:col-span-4 flex flex-col items-center text-center md:items-start md:text-left space-y-4 border-b md:border-b-0 md:border-r border-[#121212]/10 pb-6 md:pb-0 md:pr-6">
                 <div className="relative animate-float">
-                  <div className="absolute -inset-1.5 rounded-full bg-[#ff5a1a]/15 blur-sm" />
+                  <div className="absolute -inset-1.5 rounded-full bg-[#b83804]/15 blur-sm" />
                   <img 
                     src={`https://github.com/${login}.png`}
                     alt={login}
@@ -1228,7 +1228,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                   />
                   <div 
                     id="avatar-fallback" 
-                    className="hidden h-24 w-24 rounded-full bg-[#ff5a1a]/15 text-[#ff5a1a] border-2 border-[#121212] font-black text-2xl items-center justify-center relative z-10 shadow-xs"
+                    className="hidden h-24 w-24 rounded-full bg-[#b83804]/15 text-[#b83804] border-2 border-[#121212] font-black text-2xl items-center justify-center relative z-10 shadow-xs"
                   >
                     {login.substring(0, 2).toUpperCase()}
                   </div>
@@ -1236,7 +1236,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
 
                 <div className="space-y-1">
                   <h2 className="text-xl font-extrabold text-[#121212] tracking-tight">{name}</h2>
-                  <p className="text-sm font-bold text-[#ff5a1a]">@{login}</p>
+                  <p className="text-sm font-bold text-[#b83804]">@{login}</p>
                 </div>
 
                 <div className="w-full space-y-3 pt-2 text-xs font-semibold text-stone-700">
@@ -1271,7 +1271,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                   <h3 className="text-[10px] text-[#121212]/60 font-extrabold uppercase tracking-wider">Extracted Tech Stack</h3>
                   <div className="flex flex-wrap gap-1.5">
                     {extractedTech.map((tech, index) => (
-                      <span key={index} className="text-[10px] bg-[#ff5a1a]/10 text-[#ff5a1a] border border-[#ff5a1a]/25 px-3 py-1 rounded-full font-extrabold">
+                      <span key={index} className="text-[10px] bg-[#b83804]/10 text-[#b83804] border border-[#b83804]/25 px-3 py-1 rounded-full font-extrabold">
                         {tech}
                       </span>
                     ))}
@@ -1283,9 +1283,9 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                     <h3 className="text-[10px] text-[#121212]/60 font-extrabold uppercase tracking-wider">Primary Engineering Projects</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {repos.slice(0, 2).map((repo: any, index: number) => (
-                        <div key={index} className="text-xs bg-[#e6e4d5] border border-[#121212]/30 p-4 rounded-xl flex flex-col justify-between min-h-[90px] gap-2 shadow-xs hover:border-[#ff5a1a] transition-all">
+                        <div key={index} className="text-xs bg-[#e6e4d5] border border-[#121212]/30 p-4 rounded-xl flex flex-col justify-between min-h-[90px] gap-2 shadow-xs hover:border-[#b83804] transition-all">
                           <div>
-                            <p className="font-black text-[#ff5a1a] text-sm tracking-tight">{repo.name}</p>
+                            <p className="font-black text-[#b83804] text-sm tracking-tight">{repo.name}</p>
                             {repo.description && (
                               <p className="text-[10px] text-stone-650 leading-normal line-clamp-2 mt-1 font-semibold">{repo.description}</p>
                             )}
@@ -1310,7 +1310,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
 
           <section className="flex flex-col gap-6 py-6 border-b border-[#121212]/10">
             <div className="text-center md:text-left space-y-2">
-              <span className="text-[10px] text-[#ff5a1a] font-extrabold uppercase tracking-widest bg-[#ff5a1a]/10 px-3 py-1 rounded-full border border-[#ff5a1a]/20">
+              <span className="text-[10px] text-[#b83804] font-extrabold uppercase tracking-widest bg-[#b83804]/10 px-3 py-1 rounded-full border border-[#b83804]/20">
                 Step 02 / 03 — Environment Check
               </span>
               <h2 className="text-3xl font-extrabold text-[#121212] tracking-tight mt-2">
@@ -1348,12 +1348,12 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                     </>
                   ) : (
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 text-stone-500 space-y-3">
-                      <div className="h-12 w-12 rounded-full bg-[#dfdcce] border-2 border-[#121212] flex items-center justify-center text-[#ff5a1a]">
-                        <Camera className="h-5 w-5 text-[#ff5a1a]" />
+                      <div className="h-12 w-12 rounded-full bg-[#dfdcce] border-2 border-[#121212] flex items-center justify-center text-[#b83804]">
+                        <Camera className="h-5 w-5 text-[#b83804]" />
                       </div>
                       {prepCameraStatus === "loading" ? (
                         <div className="space-y-1">
-                          <p className="text-xs font-bold uppercase tracking-wider text-[#ff5a1a]">Accessing Media Devices...</p>
+                          <p className="text-xs font-bold uppercase tracking-wider text-[#b83804]">Accessing Media Devices...</p>
                           <p className="text-[11px] text-stone-650">Please click "Allow" in your browser's prompt</p>
                         </div>
                       ) : prepCameraStatus === "denied" ? (
@@ -1363,7 +1363,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                           <Button 
                             size="sm"
                             onClick={startPrepMedia}
-                            className="bg-[#ff5a1a] hover:bg-[#e04f14] border border-[#121212] text-white rounded-lg px-3 py-1 text-[10px] mt-2 shadow-xs"
+                            className="bg-[#b83804] hover:bg-[#962d03] border border-[#121212] text-white rounded-lg px-3 py-1 text-[10px] mt-2 shadow-xs"
                           >
                             Retry Request
                           </Button>
@@ -1374,7 +1374,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                           <Button 
                             size="sm"
                             onClick={startPrepMedia}
-                            className="bg-[#ff5a1a] hover:bg-[#e04f14] border border-[#121212] text-white rounded-lg px-3 py-1.5 text-xs shadow-xs"
+                            className="bg-[#b83804] hover:bg-[#962d03] border border-[#121212] text-white rounded-lg px-3 py-1.5 text-xs shadow-xs"
                           >
                             Initialize Camera & Mic
                           </Button>
@@ -1392,7 +1392,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                   <div className="flex items-start justify-between border-b border-[#121212]/10 pb-3">
                     <div className="flex gap-3">
                       <div className="p-1.5 border border-[#121212] rounded-lg bg-[#e6e4d5] shrink-0">
-                        <Camera className="h-4 w-4 text-[#ff5a1a]" />
+                        <Camera className="h-4 w-4 text-[#b83804]" />
                       </div>
                       <div>
                         <p className="font-extrabold text-xs text-[#121212]">Camera Preview</p>
@@ -1412,7 +1412,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                     <div className="flex items-start justify-between">
                       <div className="flex gap-3">
                         <div className="p-1.5 border border-[#121212] rounded-lg bg-[#e6e4d5] shrink-0">
-                          <Mic className="h-4 w-4 text-[#ff5a1a]" />
+                          <Mic className="h-4 w-4 text-[#b83804]" />
                         </div>
                         <div>
                           <p className="font-extrabold text-xs text-[#121212]">Microphone Status</p>
@@ -1444,7 +1444,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                   <div className="flex items-start justify-between border-b border-[#121212]/10 pb-3">
                     <div className="flex gap-3">
                       <div className="p-1.5 border border-[#121212] rounded-lg bg-[#e6e4d5] shrink-0">
-                        <Volume2 className="h-4 w-4 text-[#ff5a1a]" />
+                        <Volume2 className="h-4 w-4 text-[#b83804]" />
                       </div>
                       <div>
                         <p className="font-extrabold text-xs text-[#121212]">Speakers & Audio Output</p>
@@ -1468,7 +1468,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                   <div className="flex items-start justify-between border-b border-[#121212]/10 pb-3">
                     <div className="flex gap-3">
                       <div className="p-1.5 border border-[#121212] rounded-lg bg-[#e6e4d5] shrink-0">
-                        <Sparkles className="h-4 w-4 text-[#ff5a1a]" />
+                        <Sparkles className="h-4 w-4 text-[#b83804]" />
                       </div>
                       <div>
                         <p className="font-extrabold text-xs text-[#121212]">Face Visible Check</p>
@@ -1489,7 +1489,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                   <div className="flex items-start justify-between pb-1">
                     <div className="flex gap-3">
                       <div className="p-1.5 border border-[#121212] rounded-lg bg-[#e6e4d5] shrink-0">
-                        <Activity className="h-4 w-4 text-[#ff5a1a]" />
+                        <Activity className="h-4 w-4 text-[#b83804]" />
                       </div>
                       <div>
                         <p className="font-extrabold text-xs text-[#121212]">Lighting and Contrast</p>
@@ -1515,7 +1515,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
 
           <section className="flex flex-col items-center justify-center py-6 gap-6 min-h-[450px]">
             <div className="text-center space-y-2 max-w-xl">
-              <span className="text-[10px] text-[#ff5a1a] font-extrabold uppercase tracking-widest bg-[#ff5a1a]/10 px-3 py-1 rounded-full border border-[#ff5a1a]/20">
+              <span className="text-[10px] text-[#b83804] font-extrabold uppercase tracking-widest bg-[#b83804]/10 px-3 py-1 rounded-full border border-[#b83804]/20">
                 Step 03 / 03 — Begin Interview
               </span>
               <h2 className="text-3xl font-extrabold text-[#121212] tracking-tight mt-2">
@@ -1527,34 +1527,34 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
             </div>
 
             <Card className="border-brutalist-sand rounded-2xl p-6 md:p-8 bg-[#dfdcce] w-full max-w-xl flex flex-col items-center gap-6 shadow-xs relative overflow-hidden bg-[radial-gradient(circle_at_center,rgba(255,90,26,0.06)_0,transparent_70%)]">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-[#ff5a1a]" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-[#b83804]" />
               
               <div className="w-full text-left space-y-4">
                 <span className="text-[10px] text-[#121212]/60 font-extrabold uppercase tracking-wider">Interview Details</span>
                 
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-bold text-stone-700">
                   <li className="flex items-center gap-2 bg-[#e6e4d5] border border-[#121212]/10 p-2.5 rounded-lg">
-                    <span className="text-[#ff5a1a]">•</span>
+                    <span className="text-[#b83804]">•</span>
                     <span>7 Personalized Questions</span>
                   </li>
                   <li className="flex items-center gap-2 bg-[#e6e4d5] border border-[#121212]/10 p-2.5 rounded-lg">
-                    <span className="text-[#ff5a1a]">•</span>
+                    <span className="text-[#b83804]">•</span>
                     <span>GitHub Analysis Included</span>
                   </li>
                   <li className="flex items-center gap-2 bg-[#e6e4d5] border border-[#121212]/10 p-2.5 rounded-lg">
-                    <span className="text-[#ff5a1a]">•</span>
+                    <span className="text-[#b83804]">•</span>
                     <span>Resume Analysis Included</span>
                   </li>
                   <li className="flex items-center gap-2 bg-[#e6e4d5] border border-[#121212]/10 p-2.5 rounded-lg">
-                    <span className="text-[#ff5a1a]">•</span>
+                    <span className="text-[#b83804]">•</span>
                     <span>Communication Assessment</span>
                   </li>
                   <li className="flex items-center gap-2 bg-[#e6e4d5] border border-[#121212]/10 p-2.5 rounded-lg">
-                    <span className="text-[#ff5a1a]">•</span>
+                    <span className="text-[#b83804]">•</span>
                     <span>Confidence Assessment</span>
                   </li>
                   <li className="flex items-center gap-2 bg-[#e6e4d5] border border-[#121212]/10 p-2.5 rounded-lg">
-                    <span className="text-[#ff5a1a]">•</span>
+                    <span className="text-[#b83804]">•</span>
                     <span>Technical Evaluation</span>
                   </li>
                 </ul>
@@ -1570,7 +1570,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
               <Button 
                 size="lg" 
                 onClick={startInterview}
-                className="w-full sm:w-auto bg-[#ff5a1a] hover:bg-[#e04f14] border-2 border-[#121212] text-white shadow-md rounded-2xl px-12 py-7 text-lg font-black flex items-center justify-center gap-3 hover:scale-[1.03] active:scale-[0.97] transition-all cursor-pointer mt-2"
+                className="w-full sm:w-auto bg-[#b83804] hover:bg-[#962d03] border-2 border-[#121212] text-white shadow-md rounded-2xl px-12 py-7 text-lg font-black flex items-center justify-center gap-3 hover:scale-[1.03] active:scale-[0.97] transition-all cursor-pointer mt-2"
               >
                 <Play className="h-5 w-5 fill-current" />
                 Start Voice Interview
@@ -1583,16 +1583,16 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
   }
 
   return (
-    <div className="relative h-screen max-h-screen w-screen bg-[#7a7dcd] text-[#121212] flex flex-col items-center p-4 md:p-6 selection:bg-[#ff5a1a] selection:text-white overflow-hidden">
+    <div className="relative h-screen max-h-screen w-screen bg-[#7a7dcd] text-[#121212] flex flex-col items-center p-4 md:p-6 selection:bg-[#b83804] selection:text-white overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-100 pointer-events-none z-0" />
       <div className="glow-orb animate-pulse-glow w-[500px] h-[500px] bg-white/10 top-[-100px] left-[10%] pointer-events-none" />
-      <div className="glow-orb animate-pulse-glow w-[600px] h-[600px] bg-[#ff5a1a]/5 top-[30%] right-[5%] pointer-events-none" style={{ animationDelay: "2s" }} />
+      <div className="glow-orb animate-pulse-glow w-[600px] h-[600px] bg-[#b83804]/5 top-[30%] right-[5%] pointer-events-none" style={{ animationDelay: "2s" }} />
 
       <header className="w-full max-w-5xl flex justify-between items-center mt-2 mb-6 z-10 relative shrink-0">
         <Button 
           variant="ghost" 
           onClick={() => navigate("/")}
-          className="text-[#121212]/80 hover:text-[#ff5a1a] hover:bg-white/20 border border-transparent hover:border-[#121212] gap-2 rounded-xl transition-all"
+          className="text-[#121212]/80 hover:text-[#b83804] hover:bg-white/20 border border-transparent hover:border-[#121212] gap-2 rounded-xl transition-all"
         >
           <ArrowLeft className="h-4 w-4" />
           Leave Interview
@@ -1600,7 +1600,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
         
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1.5 bg-[#dfdcce] border border-[#121212] px-4 py-2 rounded-full text-xs font-bold text-[#121212] shadow-xs">
-            <span className={`h-2.5 w-2.5 rounded-full ${status === 'listening' ? 'bg-red-500 animate-pulse' : 'bg-[#ff5a1a]'}`} />
+            <span className={`h-2.5 w-2.5 rounded-full ${status === 'listening' ? 'bg-red-500 animate-pulse' : 'bg-[#b83804]'}`} />
             Status: {status.toUpperCase()}
           </div>
 
@@ -1621,7 +1621,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
            <CardHeader className="border-b border-[#121212]/10 p-5 pb-3">
              <CardTitle className="text-base font-extrabold text-[#121212] flex items-center justify-between">
                <div className="flex items-center gap-2">
-                 <Activity className="h-4 w-4 text-[#ff5a1a]" />
+                 <Activity className="h-4 w-4 text-[#b83804]" />
                  AI Face Assessment Feed
                </div>
                {isCameraOn && (
@@ -1651,7 +1651,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                      REC [AI ACTIVE]
                    </div>
 
-                   <div className="absolute top-2 right-2 px-2 py-0.5 rounded bg-black/60 border border-white/20 font-mono text-[9px] text-[#ff5a1a]">
+                   <div className="absolute top-2 right-2 px-2 py-0.5 rounded bg-black/60 border border-white/20 font-mono text-[9px] text-[#b83804]">
                      FPS: 30
                    </div>
 
@@ -1662,14 +1662,14 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                      </div>
                      <div className="flex justify-between">
                       <span>EMOTION CUE:</span>
-                      <span className="text-[#ff5a1a] font-extrabold">{isAnalyzingFace ? "ANALYZING..." : detectedEmotion.toUpperCase()}</span>
+                      <span className="text-[#b83804] font-extrabold">{isAnalyzingFace ? "ANALYZING..." : detectedEmotion.toUpperCase()}</span>
                      </div>
                    </div>
                  </>
                ) : (
                   <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 text-stone-450 space-y-4">
-                    <div className="h-16 w-16 rounded-full bg-[#dfdcce] border-2 border-[#121212] flex items-center justify-center text-[#ff5a1a] shadow-xs">
-                      <Camera className="h-7 w-7 text-[#ff5a1a]" />
+                    <div className="h-16 w-16 rounded-full bg-[#dfdcce] border-2 border-[#121212] flex items-center justify-center text-[#b83804] shadow-xs">
+                      <Camera className="h-7 w-7 text-[#b83804]" />
                     </div>
                     <div className="space-y-1.5 px-4">
                       <p className="text-xs font-bold text-stone-500 uppercase tracking-wider">Camera is disabled</p>
@@ -1689,7 +1689,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                  className={`rounded-xl border border-[#121212] px-4 py-1 text-xs font-bold gap-1.5 shadow-sm transition-all ${
                    isCameraOn 
                      ? "bg-red-500 hover:bg-red-600 text-white" 
-                     : "bg-[#ff5a1a] hover:bg-[#e04f14] text-white"
+                     : "bg-[#b83804] hover:bg-[#962d03] text-white"
                  }`}
                >
                  {isCameraOn ? (
@@ -1709,11 +1709,11 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
              {isCameraOn && (visualGuidance || isAnalyzingFace) && (
                <div className="w-full bg-[#e6e4d5] border border-[#121212] rounded-xl p-3 font-mono text-[10px] space-y-1.5">
                  <div className="flex items-center gap-1.5 border-b border-[#121212]/10 pb-1.5">
-                   <Sparkles className="h-3.5 w-3.5 text-[#ff5a1a] animate-pulse" />
+                   <Sparkles className="h-3.5 w-3.5 text-[#b83804] animate-pulse" />
                    <span className="font-extrabold text-[#121212]">AI VIBE FEEDBACK</span>
                  </div>
                  {isAnalyzingFace ? (
-                   <div className="flex items-center gap-2 text-[#ff5a1a] animate-pulse">
+                   <div className="flex items-center gap-2 text-[#b83804] animate-pulse">
                      <Loader2 className="h-3 w-3 animate-spin" />
                      <span>Processing facial expressions...</span>
                    </div>
@@ -1749,14 +1749,14 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                   >
                     <div className={`h-8 w-8 rounded-full shrink-0 flex items-center justify-center border ${
                       msg.role === 'user' 
-                        ? 'bg-[#dfdcce] border-[#121212] text-[#ff5a1a]' 
-                        : 'bg-[#ff5a1a]/10 border border-[#ff5a1a]/20 text-[#ff5a1a]'
+                        ? 'bg-[#dfdcce] border-[#121212] text-[#b83804]' 
+                        : 'bg-[#b83804]/10 border border-[#b83804]/20 text-[#b83804]'
                     }`}>
                       {msg.role === 'user' ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
                     </div>
                     <div className={`p-4 rounded-2xl text-sm shadow-sm font-semibold border ${
                       msg.role === 'user'
-                        ? 'bg-[#ff5a1a] text-white border-[#121212] rounded-tr-none'
+                        ? 'bg-[#b83804] text-white border-[#121212] rounded-tr-none'
                         : 'bg-[#dfdcce] border-[#121212] text-[#121212] rounded-tl-none'
                     }`}>
                       <p className="leading-relaxed whitespace-pre-wrap">{msg.text}</p>
@@ -1777,11 +1777,11 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
 
                 {status === "processing" && (
                   <div className="flex gap-3 max-w-[80%] mr-auto items-center">
-                    <div className="h-8 w-8 rounded-full shrink-0 flex items-center justify-center bg-[#ff5a1a]/10 border border-[#ff5a1a]/20 text-[#ff5a1a]">
+                    <div className="h-8 w-8 rounded-full shrink-0 flex items-center justify-center bg-[#b83804]/10 border border-[#b83804]/20 text-[#b83804]">
                       <Bot className="h-4 w-4" />
                     </div>
                     <div className="flex items-center gap-2 px-4 py-3 bg-[#dfdcce] border border-[#121212] rounded-2xl rounded-tl-none shadow-xs">
-                      <Loader2 className="h-4 w-4 animate-spin text-[#ff5a1a]" />
+                      <Loader2 className="h-4 w-4 animate-spin text-[#b83804]" />
                       <span className="text-xs text-stone-600 font-bold">Interviewer is thinking...</span>
                     </div>
                   </div>
@@ -1840,7 +1840,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                               ? "bg-red-500 hover:bg-red-600"
                               : status === "speaking"
                               ? "bg-emerald-500 hover:bg-emerald-600"
-                              : "bg-[#ff5a1a] hover:bg-[#e04f14]"
+                              : "bg-[#b83804] hover:bg-[#962d03]"
                           }`}
                         >
                           {status === "listening" ? (
@@ -1882,7 +1882,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                         value={manualInput}
                         onChange={(e) => setManualInput(e.target.value)}
                         placeholder="Or type your response here instead..."
-                        className="flex-1 bg-white border border-[#121212] rounded-xl px-4 py-2 text-xs text-[#121212] placeholder-stone-450 focus:outline-none focus:border-[#ff5a1a] focus:ring-1 focus:ring-[#ff5a1a]/30 font-semibold"
+                        className="flex-1 bg-white border border-[#121212] rounded-xl px-4 py-2 text-xs text-[#121212] placeholder-stone-450 focus:outline-none focus:border-[#b83804] focus:ring-1 focus:ring-[#b83804]/30 font-semibold"
                         onKeyDown={(e) => {
                           if (e.key === "Enter") {
                             submitAnswer(manualInput);
@@ -1892,7 +1892,7 @@ Keep your response short (2-3 sentences), professional, and encouraging.`;
                       <Button
                         size="sm"
                         onClick={() => submitAnswer(manualInput)}
-                        className="bg-[#ff5a1a] hover:bg-[#e04f14] border border-[#121212] text-white rounded-xl text-xs gap-1.5 shadow-sm"
+                        className="bg-[#b83804] hover:bg-[#962d03] border border-[#121212] text-white rounded-xl text-xs gap-1.5 shadow-sm"
                       >
                         <Send className="h-3 w-3" />
                         Send

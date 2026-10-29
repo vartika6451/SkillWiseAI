@@ -1,6 +1,6 @@
 import express from "express";
 import { PreInterviewBody } from "./types";
-import { scrapeGithub } from "./scrapers/github";
+import { scrapeGithub, GitHubApiError } from "./scrapers/github";
 import cors from "cors";
 import { prisma } from "./db";
 import { ai } from "./gemini";
@@ -8,13 +8,27 @@ import dotenv from "dotenv";
 import fs from "fs";
 import path from "path";
 
-// Load environment variables (supports standard node execution & local overrides)
-if (fs.existsSync(path.resolve(process.cwd(), ".env.local"))) {
-    dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
+// Load environment variables (supports monorepo root, apps/backend directory, and local overrides)
+const potentialEnvDirs = [
+    process.cwd(),
+    path.resolve(process.cwd(), "apps/backend"),
+    path.resolve(process.cwd(), ".."),
+];
+
+for (const dir of potentialEnvDirs) {
+    const envLocal = path.resolve(dir, ".env.local");
+    const envFile = path.resolve(dir, ".env");
+    if (fs.existsSync(envLocal)) {
+        dotenv.config({ path: envLocal });
+    }
+    if (fs.existsSync(envFile)) {
+        dotenv.config({ path: envFile });
+    }
 }
-dotenv.config();
 
 console.log("--- STARTING BACKEND BOOT FLOW ---");
+const hasGitHubToken = Boolean(process.env.GITHUB_TOKEN?.trim().replace(/^["']|["']$/g, ""));
+console.log(`[GitHub API] Auth state: ${hasGitHubToken ? "Configured with GITHUB_TOKEN (5,000 req/hr quota)" : "Unauthenticated (60 req/hr quota)"}`);
 
 // 1. Detect any unhandled promise rejections & uncaught exceptions
 process.on("unhandledRejection", (reason, promise) => {
@@ -283,25 +297,88 @@ app.get("/api/v1/github/repos", async (req, res) => {
         return res.status(400).json({ message: "Invalid GitHub username or URL" });
     }
 
+    function handleScraperError(res: express.Response, scrapeErr: any, user: string) {
+        console.error("❌ GitHub scraping error:", scrapeErr?.message || scrapeErr);
+
+        if (scrapeErr instanceof GitHubApiError) {
+            if (scrapeErr.isNotFound) {
+                return res.status(404).json({
+                    message: scrapeErr.userMessage,
+                    errorType: scrapeErr.errorType,
+                    diagnostic: scrapeErr.diagnostic,
+                });
+            }
+            if (scrapeErr.isAuthError) {
+                return res.status(401).json({
+                    message: scrapeErr.userMessage,
+                    errorType: scrapeErr.errorType,
+                    diagnostic: scrapeErr.diagnostic,
+                });
+            }
+            if (scrapeErr.isRateLimit || scrapeErr.isSecondaryRateLimit) {
+                return res.status(429).json({
+                    message: scrapeErr.userMessage,
+                    errorType: scrapeErr.errorType,
+                    resetAt: scrapeErr.resetAt,
+                    retryAfterSeconds: scrapeErr.retryAfterSeconds,
+                    diagnostic: scrapeErr.diagnostic,
+                });
+            }
+            if (scrapeErr.isForbidden) {
+                return res.status(403).json({
+                    message: scrapeErr.userMessage,
+                    errorType: scrapeErr.errorType,
+                    diagnostic: scrapeErr.diagnostic,
+                });
+            }
+            if (scrapeErr.isNetworkError) {
+                return res.status(502).json({
+                    message: scrapeErr.userMessage,
+                    errorType: scrapeErr.errorType,
+                    diagnostic: scrapeErr.diagnostic,
+                });
+            }
+            const status = scrapeErr.status >= 400 && scrapeErr.status < 600 ? scrapeErr.status : 400;
+            return res.status(status).json({
+                message: scrapeErr.userMessage,
+                errorType: scrapeErr.errorType,
+                diagnostic: scrapeErr.diagnostic,
+            });
+        }
+
+        if (scrapeErr?.response?.status === 404) {
+            return res.status(404).json({
+                message: `GitHub user "${user}" not found. Please verify the username.`
+            });
+        }
+        if (scrapeErr?.response?.status === 401) {
+            return res.status(401).json({
+                message: "GitHub authentication failed. Please verify your GITHUB_TOKEN."
+            });
+        }
+        if (scrapeErr?.response?.status === 403 || scrapeErr?.response?.status === 429) {
+            const remaining = scrapeErr.response?.headers?.["x-ratelimit-remaining"];
+            if (remaining === "0") {
+                return res.status(429).json({
+                    message: "GitHub API rate limit exceeded. Please configure GITHUB_TOKEN or try again later."
+                });
+            }
+            return res.status(403).json({
+                message: `GitHub access forbidden: ${scrapeErr.response?.data?.message || scrapeErr.message}`
+            });
+        }
+
+        return res.status(400).json({
+            message: `Failed to fetch GitHub profile: ${scrapeErr?.response?.data?.message || scrapeErr?.message || "Unknown error"}`
+        });
+    }
+
     try {
         console.log(`Scraping GitHub repos for preview: ${githubUsername}`);
         const repos = await scrapeGithub(githubUsername);
         return res.json({ repos });
     } catch (scrapeErr: any) {
-        console.error("❌ GitHub scraping failed for preview:", scrapeErr.response?.data || scrapeErr.message || scrapeErr);
-        if (scrapeErr.response?.status === 404) {
-            return res.status(404).json({
-                message: `GitHub user "${githubUsername}" not found. Please verify the username.`
-            });
-        }
-        if (scrapeErr.response?.status === 403) {
-            return res.status(403).json({
-                message: "GitHub API rate limit exceeded. Please configure GITHUB_TOKEN or try again later."
-            });
-        }
-        return res.status(400).json({
-            message: `Failed to fetch GitHub profile: ${scrapeErr.response?.data?.message || scrapeErr.message}`
-        });
+        return handleScraperError(res, scrapeErr, githubUsername);
     }
 });
 
@@ -341,20 +418,7 @@ app.post("/api/v1/pre-interview", async (req, res) => {
         try {
             githubData = await scrapeGithub(githubUsername);
         } catch (scrapeErr: any) {
-            console.error("❌ GitHub scraping failed:", scrapeErr.response?.data || scrapeErr.message || scrapeErr);
-            if (scrapeErr.response?.status === 404) {
-                return res.status(404).json({
-                    message: `GitHub user "${githubUsername}" not found. Please verify the username.`
-                });
-            }
-            if (scrapeErr.response?.status === 403) {
-                return res.status(403).json({
-                    message: "GitHub API rate limit exceeded. Please configure GITHUB_TOKEN or try again later."
-                });
-            }
-            return res.status(400).json({
-                message: `Failed to fetch GitHub profile: ${scrapeErr.response?.data?.message || scrapeErr.message}`
-            });
+            return handleScraperError(res, scrapeErr, githubUsername);
         }
 
         // If selectedRepos is provided, filter the repositories

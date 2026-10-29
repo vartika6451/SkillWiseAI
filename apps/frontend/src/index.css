@@ -76,7 +76,7 @@
 }
 
 .border-brutalist-sand:hover {
-  border-color: #ff5a1a;
+  border-color: #d54d18;
   box-shadow: 0 6px 16px -2px rgba(18, 18, 18, 0.08);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -93,7 +93,7 @@
   border-radius: 9999px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #ff5a1a;
+  background: #da531d;
 }
 
 
